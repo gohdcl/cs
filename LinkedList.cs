@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 class LinkedList
 {
     public LinkedList()
@@ -11,6 +12,7 @@ class LinkedList
         name = "Default List Title";
         head = null;
     } // end default constructor
+
     public LinkedList(string listTitle)
     {
         name = listTitle;
@@ -23,6 +25,7 @@ class LinkedList
         {
             head = new Node(toAdd); // create a new Node and assign it to head
         } // end if
+
         else // there is at least one element in the list
         {
             Node curr = head; // point a temporary Node reference to head
@@ -54,6 +57,7 @@ class LinkedList
                 {
                     head = null; // remove it
                 } // end if
+
                 else
                 {
                     // temporary Nodes
@@ -89,7 +93,7 @@ class LinkedList
         else
         {
             Console.WriteLine("There is nothing to remove");
-        }
+        } // end else
     } // end RemoveFromBeginning()
 
 
@@ -155,6 +159,6 @@ class LinkedList
     } // end Node class
 
     private Node head; // the start of the list
-    private string name; // name of thet list
+    private string name; // name of the list
 } // end LinkedList class 
 
