@@ -1,4 +1,5 @@
-﻿using System;
+﻿// C# implementation of a singly linked list with no tail reference
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,13 +20,12 @@ class LinkedList
         head = null;
     } // end overloaded constructor
     
-    public void InsertAtEnd(int toAdd)
+    public void InsertAtEnd(object toAdd)
     {
         if (head == null) // if the list is empty
         {
             head = new Node(toAdd); // create a new Node and assign it to head
         } // end if
-
         else // there is at least one element in the list
         {
             Node curr = head; // point a temporary Node reference to head
@@ -39,7 +39,7 @@ class LinkedList
         } // end else
     } // end InsertAtEnd
 
-    public void InsertAtBeginning(int toAdd)
+    public void InsertAtBeginning(object toAdd)
     {
         Node curr = head; // point a temporary Node to head
         head = new Node(toAdd); // reassign head to the new Node
@@ -57,7 +57,6 @@ class LinkedList
                 {
                     head = null; // remove it
                 } // end if
-
                 else
                 {
                     // temporary Nodes
@@ -71,7 +70,7 @@ class LinkedList
                     } // end while
 
                     curr = null; // null out the last Node
-                    prev.Next = null; // make sure the next to last Node's Next reference is null too
+                    prev.Next = null; // null the new last Node's Next reference
                 } // end else
             } // end if
         } // end if(!IsEmpty())
@@ -95,7 +94,6 @@ class LinkedList
             Console.WriteLine("There is nothing to remove");
         } // end else
     } // end RemoveFromBeginning()
-
 
     // Print method to output list contents into Console
     public void Print()
@@ -137,28 +135,24 @@ class LinkedList
     private class Node
     {
         // default Node constructor, for inserting at end of list
-        public Node(int dataValue) 
+        public Node(object dataValue) 
         {
             Data = dataValue;
             Next = null;
         } // end default Node constructor
 
         // overloaded Node constructor used for inserting in a list where the next Node is known
-        public Node(int dataValue, Node nextNode)
+        public Node(object dataValue, Node nextNode)
         {
             Data = dataValue;
             Next = nextNode;
         } // end overloaded Node constructor
 
         public Node Next { get; set; } // accessor and mutator for variable next
-        public int Data { get; set; } // accessor and mutator for variable data
-
-        private Node next;
-        private int data;
+        public object Data { get; set; } // accessor and mutator for variable data
         
     } // end Node class
 
     private Node head; // the start of the list
     private string name; // name of the list
 } // end LinkedList class 
-
